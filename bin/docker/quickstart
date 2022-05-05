@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+./bin/docker/build
+./bin/docker/rebuild_fixtures
+docker-compose up

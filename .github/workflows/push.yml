@@ -1,0 +1,11 @@
+name: Push actions
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: ./bin/docker/build
+      - name: Lint
+        run: ./bin/docker/npm run lint

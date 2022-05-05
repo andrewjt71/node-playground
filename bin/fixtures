@@ -1,0 +1,1 @@
+node /app/node_modules/node-mongodb-fixtures/bin/mongodb-fixtures.js -u "mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin" "$@"
