@@ -7,5 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the stack
         run: ./bin/docker/build
-      - name: Lint
+      - name: Lint the codebase
         run: ./bin/docker/npm run lint
+      - name: Run unit tests on the codebase
+        run: ./bin/docker/jest

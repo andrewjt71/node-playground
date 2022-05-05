@@ -5,7 +5,7 @@ export default interface Property {
     postcode: string;
     room_count: number;
     square_footage: number;
-    inflation_factor: number;
+    area_value_factor: number;
     refuse_collection_day: string;
     previous_valuation: number;
     previous_valuation_date: Date;

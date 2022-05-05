@@ -36,6 +36,10 @@ This command will:
 - Load fixtures into Mongo DB
 - Start the containers
 
+To ensure the app is running, hit:
+- `http://0.0.0.0:6868/properties` to list all properties
+- `http://0.0.0.0:6868/properties?minumumProjectedValue=200000&projectedYears=4` to list all properties with a projected value over 200,000 in the next 4 years
+
 ## Useful scripts
 
 - Run application (use this if the app is already installed) `./bin/docker/run`

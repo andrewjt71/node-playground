@@ -1,12 +1,11 @@
 import express from "express";
-import { connectToDatabase } from "./services/database.connection";
-import { propertiesRouter } from "./routes/properties.router";
+import { connectToDatabase } from "./services/database/connection";
+import { propertiesRouter } from "./routes/propertiesRouter";
 import * as dotenv from "dotenv";
 
 // Pull in the .env file so it can be accessed from process.env
 dotenv.config();
 const app = express();
-const port = 8080;
 
 connectToDatabase()
     .then(() => {

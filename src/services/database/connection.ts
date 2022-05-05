@@ -1,6 +1,6 @@
 import * as mongoDB from "mongodb";
-import Property from "../models/property";
-import {collections} from "./database.collections"
+import Property from "../../models/property";
+import {collections} from "../database/collections"
 
 /**
  * Connect to the database, register / update collections and enforce schema validation.
@@ -26,6 +26,7 @@ export async function connectToDatabase() {
  * https://www.mongodb.com/blog/post/json-schema-validation--locking-down-your-model-the-smart-way
  *
  * @param db
+ * @param disableValidation
  */
 async function applySchemaValidation(db: mongoDB.Db) {
     const jsonSchema = {
@@ -36,7 +37,7 @@ async function applySchemaValidation(db: mongoDB.Db) {
                 "postcode",
                 "room_count",
                 "square_footage",
-                "inflation_factor",
+                "area_value_factor",
                 "refuse_collection_day",
             ],
             additionalProperties: false,
@@ -58,9 +59,9 @@ async function applySchemaValidation(db: mongoDB.Db) {
                     bsonType: "number",
                     description: "'square_footage' is required and is a number",
                 },
-                inflation_factor: {
+                area_value_factor: {
                     bsonType: "number",
-                    description: "'inflation_factor' is required and is a number",
+                    description: "'area_value_factor' is required and is a number",
                 },
                 refuse_collection_day: {
                     enum: [
@@ -93,25 +94,6 @@ async function applySchemaValidation(db: mongoDB.Db) {
     }).catch(async (error: mongoDB.MongoServerError) => {
         if (error.codeName === 'NamespaceNotFound') {
             await db.createCollection('properties', {validator: jsonSchema});
-        }
-    });
-}
-
-/**
- * Helper function for bypassing schema validation. Useful for debugging what's actually being persisted to MongoDB.
- *
- * @param db
- */
-async function applyNoSchemaValidation(db: mongoDB.Db) {
-
-    // Try applying the modification to the collection, if the collection doesn't exist, create it
-    await db.command({
-        collMod: 'properties',
-        validator: {},
-        validationLevel: "off"
-    }).catch(async (error: mongoDB.MongoServerError) => {
-        if (error.codeName === 'NamespaceNotFound') {
-            await db.createCollection('properties', {validator: {}});
         }
     });
 }
