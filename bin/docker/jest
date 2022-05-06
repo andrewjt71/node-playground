@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker-compose run api ./node_modules/jest/bin/jest.js

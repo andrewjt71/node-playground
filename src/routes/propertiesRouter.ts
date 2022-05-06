@@ -1,20 +1,28 @@
 import express, { Request, Response } from "express";
 import { ObjectId } from "mongodb";
-import { collections } from "../services/database.collections";
+import { collections } from "../services/database/collections";
+import filterMinValueProjection from "../services/properties/propertiesFilter";
 
 export const propertiesRouter = express.Router();
 
 propertiesRouter.use(express.json());
 
 /**
- * Retrieve all properties.
+ * Retrieve properties.
  */
-propertiesRouter.get("/", async (_req: Request, res: Response) => {
+propertiesRouter.get("/", async (req: Request, res: Response) => {
     try {
-        // Call find with an empty filter object, meaning it returns all documents in the collection. Saves as property array to take advantage of types
+        // Convert to property array to take advantage of types.
         const properties = await collections.properties.find({}).toArray();
+        const minumumProjectedValue = req.query.minumumProjectedValue;
+        const projectedYears = req.query.projectedYears;
 
-        res.status(200).send(properties);
+        if (( ! minumumProjectedValue  || !projectedYears)) {
+            res.status(200).send(properties);
+            return;
+        }
+
+        res.status(200).send(filterMinValueProjection(properties, +minumumProjectedValue, +projectedYears));
     } catch (error) {
         res.status(500).send(error.message);
     }
