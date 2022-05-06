@@ -1,4 +1,4 @@
-import filterMinValueProjection from "./propertiesFilter";
+import * as propertiesFilter from "../../services/properties/propertiesFilter";
 import { ObjectId } from "mongodb";
 
 /**
@@ -35,7 +35,7 @@ describe('Property value calculator utility functions', () => {
             "previous_valuation_date": new Date()
         }
 
-        const result = filterMinValueProjection([propertyWithHigherProjectedValue, propertyWithLowerProjectedValue], 243589.64, 7);
+        const result = propertiesFilter.filterMinValueProjection([propertyWithHigherProjectedValue, propertyWithLowerProjectedValue], 243589.64, 7);
 
         expect(result).toContain(propertyWithHigherProjectedValue);
         expect(result).not.toContain(propertyWithLowerProjectedValue);

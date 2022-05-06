@@ -1,4 +1,4 @@
-import getProjectedValue from "./propertyValueCalculator"
+import * as propertyValueCalculator from "../../services/properties/propertyValueCalculator"
 
 /**
  * propertyValueCalculator module tests.
@@ -17,7 +17,7 @@ describe('Property value calculator utility functions', () => {
         const areaValueFactor = 1;
         const expectedProjectedValue = 138750.00;
 
-        expect(getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
+        expect(propertyValueCalculator.getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
     });
 
     test('getProjectedValue calculates the expected value after 8 years when area value factor is 1 using compound growth rate', async () => {
@@ -28,7 +28,7 @@ describe('Property value calculator utility functions', () => {
         const areaValueFactor = 1;
         const expectedProjectedValue = 288067.22;
 
-        expect(getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
+        expect(propertyValueCalculator.getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
     });
 
     test('getProjectedValue calculates the expected value over 1 year when area value factor is > 1', async () => {
@@ -39,7 +39,7 @@ describe('Property value calculator utility functions', () => {
         const areaValueFactor = 1.1;
         const expectedProjectedValue = 140125.00;
 
-        expect(getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
+        expect(propertyValueCalculator.getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
     });
 
     test('getProjectedValue calculates the expected value over 5 years when the area value factor is < 1', async () => {
@@ -50,6 +50,6 @@ describe('Property value calculator utility functions', () => {
         const areaValueFactor = 0.4;
         const expectedProjectedValue = 168971.52;
 
-        expect(getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
+        expect(propertyValueCalculator.getProjectedValue(previousValue, valuationDate, todayDate, projectedYears, areaValueFactor)).toEqual(expectedProjectedValue);
     });
 });

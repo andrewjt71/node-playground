@@ -1,6 +1,6 @@
 import express from "express";
 import { connectToDatabase } from "./services/database/connection";
-import { propertiesRouter } from "./routes/propertiesRouter";
+import { propertiesRouter } from "./router/propertiesRouter";
 import * as dotenv from "dotenv";
 
 // Pull in the .env file so it can be accessed from process.env
