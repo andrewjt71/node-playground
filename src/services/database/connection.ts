@@ -1,5 +1,5 @@
 import * as mongoDB from "mongodb";
-import Property from "../../models/property";
+import Property from "../../entity/property";
 import {collections} from "../database/collections"
 
 /**

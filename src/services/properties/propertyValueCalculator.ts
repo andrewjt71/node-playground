@@ -21,7 +21,7 @@ function roundToNearestPenny(amount: number) {
  * @param numberOfProjectedYears The number of years into the future the valuation is to be estimated.
  * @param areaValueFactor Used to apply weightings to value increase rates per area/property.
  */
-export default function getProjectedValue(
+export function getProjectedValue(
     previousValuation: number,
     previousValuationDate: Date,
     currentDate: Date,
