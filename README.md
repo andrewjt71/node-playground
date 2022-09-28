@@ -44,3 +44,36 @@ To ensure the app is running, hit:
 
 - Run application (use this if the app is already installed) `./bin/docker/run`
 - Run npm jobs inside the API container from the host `./bin/docker/npm [insert task name here] // e.g. ./bin/docker/npm install`
+
+## Debugging
+In package.json start.dev:
+- `--inspect=0.0.0.0:9229` tells Node JS to listen for a debugging client [read more](https://nodejs.org/en/docs/guides/debugging-getting-started/#enable-inspector)
+ - `--signal SIGINT` ensures debug listener is restarted on hot reload (hot reload caused by our use of Nodemon)
+ - `--nolazy` is required to make breakpoints work
+
+Do configure Visual Code Studio:
+- Click Debug icon
+- Create a launch file
+- Node JS
+
+Swap config for:
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Node playground app",
+            "port": 9229,
+            "restart": true,
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/"
+        }
+    ]
+}
+```

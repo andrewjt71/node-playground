@@ -10,6 +10,7 @@ services:
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+      - $NODE_DOCKER_DEBUG_PORT:$NODE_DOCKER_DEBUG_PORT
     depends_on:
       - db
     environment:
