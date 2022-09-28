@@ -29,6 +29,7 @@ export async function getPropertyAction(req: Request, res: Response) {
  * @param res Response.
  */
 export async function getPropertiesAction(req: Request, res: Response) {
+    
     try {
         // Convert to property array to take advantage of types.
         const properties = await propertyRepository.findAll()

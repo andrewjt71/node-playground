@@ -10,10 +10,8 @@ export async function connectToDatabase() {
     await client.connect();
     const db = client.db(process.env.MONGODB_DATABASE);
     await applySchemaValidation(db);
-
     // Connect our properties collection with that retrieved from the DB.
     collections.properties = db.collection<Property>('properties');
-
     console.log(
         `Successfully connected to database: ${db.databaseName} and collection: ${db.collection<Property>('properties').collectionName}`
     );

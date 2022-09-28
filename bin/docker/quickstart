@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+docker-compose down --remove-orphans
 ./bin/docker/build
 ./bin/docker/rebuild_fixtures
 docker-compose up
