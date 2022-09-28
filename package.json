@@ -1,7 +1,7 @@
 {
   "main": "src/server.ts",
   "scripts": {
-    "start.dev": "nodemon src/server.ts --inspect-brk=0.0.0.0:9229 --signal SIGINT --nolazy",
+    "start.dev": "nodemon src/server.ts",
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {

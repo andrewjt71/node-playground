@@ -6,14 +6,18 @@ import {collections} from "../database/collections"
  * Connect to the database, register / update collections and enforce schema validation.
  */
 export async function connectToDatabase() {
+    console.log('at debug 1');
     const client = new mongoDB.MongoClient(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?authSource=admin`);
+    console.log('at debug 2');
     await client.connect();
+    console.log('at debug 3');
     const db = client.db(process.env.MONGODB_DATABASE);
+    console.log('at debug 4');
     await applySchemaValidation(db);
-
+    console.log('at debug 5');
     // Connect our properties collection with that retrieved from the DB.
     collections.properties = db.collection<Property>('properties');
-
+    console.log('at debug 6');
     console.log(
         `Successfully connected to database: ${db.databaseName} and collection: ${db.collection<Property>('properties').collectionName}`
     );
