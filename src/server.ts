@@ -10,13 +10,12 @@ const app = express();
 connectToDatabase()
     .then(() => {
         app.use("/properties", propertiesRouter);
-
+            
         app.listen(process.env.NODE_DOCKER_PORT, () => {
-            console.log(`Server started at http://localhost:${process.env.NODE_DOCKER_PORT}`);
+            console.log(`Server started on port ${process.env.NODE_DOCKER_PORT}`);
         });
     })
     .catch((error: Error) => {
         console.error("Database connection failed", error);
         process.exit();
     });
-

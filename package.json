@@ -1,7 +1,7 @@
 {
   "main": "src/server.ts",
   "scripts": {
-    "start.dev": "nodemon src/server.ts",
+    "start.dev": "nodemon src/server.ts --inspect-brk=0.0.0.0:9229 --signal SIGINT --nolazy",
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "node-mongodb-fixtures": "^3.2.9",
     "nodemon": "^2.0.15",
     "ts-jest": "^28.0.1",
+    "ts-node": "^10.9.1",
     "typescript": "^4.6.4"
   },
   "name": "playground",

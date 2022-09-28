@@ -10,7 +10,7 @@ import * as propertyRepository from "../repository/propertyRepository";
  */
 export async function getPropertyAction(req: Request, res: Response) {
     const id = req?.params?.id;
-
+    
     try {
         const property = await propertyRepository.findById(id);
 
