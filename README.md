@@ -46,12 +46,7 @@ To ensure the app is running, hit:
 - Run npm jobs inside the API container from the host `./bin/docker/npm [insert task name here] // e.g. ./bin/docker/npm install`
 
 ## Debugging
-In package.json start.dev:
-- `--inspect=0.0.0.0:9229` tells Node JS to listen for a debugging client [read more](https://nodejs.org/en/docs/guides/debugging-getting-started/#enable-inspector)
- - `--signal SIGINT` ensures debug listener is restarted on hot reload (hot reload caused by our use of Nodemon)
- - `--nolazy` is required to make breakpoints work
-
-Do configure Visual Code Studio:
+For configure Visual Code Studio:
 - Click Debug icon
 - Create a launch file
 - Node JS
