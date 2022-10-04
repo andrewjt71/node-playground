@@ -51,7 +51,7 @@ In package.json start.dev:
  - `--signal SIGINT` ensures debug listener is restarted on hot reload (hot reload caused by our use of Nodemon)
  - `--nolazy` is required to make breakpoints work
 
-Do configure Visual Code Studio:
+To configure Visual Code Studio:
 - Click Debug icon
 - Create a launch file
 - Node JS
