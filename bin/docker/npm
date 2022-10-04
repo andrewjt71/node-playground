@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-docker-compose run api npm "$@"
+# Service ports are required to use service ports defined in docker-compose.yml when the container is started via docker-compose run.
+# Otherwise these are omitted (unlike docker-compose up)
+docker-compose run --service-ports api npm "$@"

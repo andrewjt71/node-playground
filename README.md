@@ -81,3 +81,5 @@ Add the following to the configurations array in launch.json:
       "localRoot": "${workspaceFolder}"
     }
 ```
+
+To start your debugging session in VS code, click the "Start debugging" button (or hit F5).
