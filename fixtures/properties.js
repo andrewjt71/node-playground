@@ -1,9 +1,9 @@
-const { ObjectID: ObjectId } = require('mongodb');
+const { ObjectId: ObjectId } = require('mongodb');
 
 module.exports = [
   {
     _id: ObjectId(),
-    "property_number": "15",
+    "property_number": 15,
     "postcode": "CF10 1DD",
     "room_count": 6,
     "square_footage": 127,
