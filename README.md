@@ -59,6 +59,8 @@ This means that whenever `ts` is called by `nodemon`, what will actually be run 
 
 See [this issue](https://github.com/remy/nodemon/issues/1565#issuecomment-640537315) for details
 
+N.B according to [this talk at NodeConf](https://www.youtube.com/watch?t=1387&v=1WvHT7FgrAo&feature=youtu.be) Node v18 has integrated watch mode, so no need for nodemon. So shortly `nodemon` will be switched for the command `node --watch file.js`
+
 To configure Visual Code Studio:
 - Click Debug icon
 - Create a launch file
