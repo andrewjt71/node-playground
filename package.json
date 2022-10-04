@@ -41,7 +41,7 @@
   "homepage": "https://github.com/andrewjt71/node-playground#readme",
   "nodemonConfig": {
     "execMap": {
-      "ts": "node --require ts-node/register --inspect=0.0.0.0:9229"
+      "ts": "node --require ts-node/register --inspect-brk=0.0.0.0:9229"
     }
   }
 }
