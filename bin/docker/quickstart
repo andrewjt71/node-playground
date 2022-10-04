@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-docker-compose down --remove-orphans
+
+if [ ! -f ./env ]; then
+  cp ./.env.dist ./.env
+fi
+
 ./bin/docker/build
-./bin/docker/rebuild_fixtures
-docker-compose up

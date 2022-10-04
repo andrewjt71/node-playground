@@ -70,16 +70,16 @@ Add the following to the configurations array in launch.json:
 
 ```
 {
-      "name": "Attach",
-      "port": 9229,
-      "request": "attach",
-      "skipFiles": [
+    "name": "Attach",
+    "port": 9229,
+    "request": "attach",
+    "skipFiles": [
         "<node_internals>/**"
-      ],
-      "type": "node",
-      "remoteRoot": "./app",
-      "localRoot": "${workspaceFolder}"
-    }
+    ],
+    "type": "node",
+    "remoteRoot": "./app",
+    "localRoot": "${workspaceFolder}"
+}
 ```
 
 To start your debugging session in VS code, click the "Start debugging" button (or hit F5).

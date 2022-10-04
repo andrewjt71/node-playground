@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-if [ ! -f ./env ]; then
-  cp ./.env.dist ./.env
-fi
-
 docker-compose build --no-cache
 ./bin/docker/npm install
+./bin/docker/rebuild_fixtures
+docker-compose up
